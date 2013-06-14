@@ -1,0 +1,4 @@
+mypdo
+=====
+
+PDO wrapper class
