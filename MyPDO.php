@@ -45,7 +45,7 @@ class MyPDO extends PDO
 	 * @param string $password - database password
 	 * @param array $options - associative array of connection options
 	 */	
-	public function __construct($dsn, $user, $password, $options = '')
+	public function __construct($dsn, $user, $password, $options = array())
 	{
 		// set server environment constants
 		require_once 'global/ErrorHandler.php';

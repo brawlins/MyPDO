@@ -25,7 +25,7 @@ given.
 ###__construct
 
 ```
-public function __construct($dsn, $user, $password, $options='') {}
+public function __construct($dsn, $user, $password, $options = array()) {}
 
 // example
 $MyPDO = new MyPDO('mysql:host=localhost;dbname=database', 'user', 'password');
@@ -34,7 +34,7 @@ $MyPDO = new MyPDO('mysql:host=localhost;dbname=database', 'user', 'password');
 ### delete
 
 ```
-public function delete($sql, $bindings = '') {}
+public function delete($sql, $bindings = array()) {}
 
 // delete statements must have a where clause
 $result = $MyPDO->delete('DELETE FROM fruits'); // throws exception
@@ -50,7 +50,7 @@ $result = $MyPDO->delete('DELETE FROM fruits WHERE name = :fruit', array(':fruit
 ### insert
 
 ```
-public function insert($table, $values, $bindings = '') {}
+public function insert($table, $values, $bindings = array()) {}
 
 // normal
 $values = array('name' => 'banana', 'color' => 'yellow', 'qty' => 5);
@@ -72,7 +72,7 @@ $result = $MyPDO->insert('fruits', $values, $bindings);
 This method is a catch-all that handles any SQL statement. 
 
 ```
-public function run($sql, $bindings = '') {}
+public function run($sql, $bindings = array()) {}
 
 // create table
 $result = $MyPDO->run('CREATE TABLE fruits (name VARCHAR(20), color VARCHAR(20))');
@@ -86,7 +86,7 @@ $result = $MyPDO->run('ALTER TABLE fruits ADD COLUMN qty INT(11)');
 This method returns an array of rows. To select a single value use selectCell().
 
 ```
-public function select($sql, $bindings = '', $fetch_style = '', $fetch_argument = '') {}
+public function select($sql, $bindings = array(), $fetch_style = '', $fetch_argument = '') {}
 
 // normal
 $rows = $MyPDO->select('SELECT * FROM fruits');
@@ -104,7 +104,7 @@ $rows = $MyPDO->select('SELECT name, qty FROM fruits', NULL, PDO::FETCH_COLUMN, 
 Sometimes you want to retrieve a single value without it being buried in an array. This method returns a scalar value representing the intersection of one row and one column. 
 
 ```
-public function select($sql, $bindings = '', $fetch_style = '', $fetch_argument = '') {}
+public function selectCell($sql, $bindings = array()) {}
 
 // normal
 $qty = $MyPDO->selectCell('SELECT qty FROM fruits WHERE fruit = "apple"'); 
@@ -116,7 +116,7 @@ $qty = $MyPDO->selectCell('SELECT qty FROM fruits WHERE fruit = ?', array('apple
 ### update
 
 ```
-public function update($table, $values, $where, $bindings = '') {}
+public function update($table, $values, $where, $bindings = array()) {}
 
 // normal
 $values = array('qty' => 5);
