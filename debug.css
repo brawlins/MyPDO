@@ -1,0 +1,5 @@
+.debug, .debug pre  { font: 12px Arial, Helvetica, sans-serif; text-align: left; }
+.debug { background: #FDF0EB; border: 1px solid #990000; color: #990000; margin: 0.75em; min-width: 400px; padding: 0.75em; }
+.debug h3 { border-bottom: 1px solid #990000; margin: 0; padding-bottom: 0.25em; }
+.debug label { display: block; font-weight: bold; padding-top: 1em; }
+.debug pre { margin: 0; }
