@@ -1,7 +1,11 @@
+# MyPDO
+
+***
+
 ## Overview
 
 MyPDO is an extension of PHP's PDO class designed to provide a simplified
-workflow and centralized error handling for SQL statments.
+workflow and centralized error handling for SQL statements.
 
 There are basic methods for select, insert, update, and delete, as well as a
 run method for anything else. The workflow is simplified by combining the
