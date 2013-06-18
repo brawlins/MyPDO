@@ -28,7 +28,7 @@ given.
 
 ###__construct
 
-```
+```php
 public function __construct($dsn, $user, $password, $options = array()) {}
 
 // example
@@ -37,7 +37,7 @@ $MyPDO = new MyPDO('mysql:host=localhost;dbname=database', 'user', 'password');
 
 ### delete
 
-```
+```php
 public function delete($sql, $bindings = array()) {}
 
 // delete statements must have a where clause
@@ -53,7 +53,7 @@ $result = $MyPDO->delete('DELETE FROM fruits WHERE name = :fruit', array(':fruit
 
 ### insert
 
-```
+```php
 public function insert($table, $values, $bindings = array()) {}
 
 // normal
@@ -75,7 +75,7 @@ $result = $MyPDO->insert('fruits', $values, $bindings);
 
 This method is a catch-all that handles any SQL statement. 
 
-```
+```php
 public function run($sql, $bindings = array()) {}
 
 // create table
@@ -89,7 +89,7 @@ $result = $MyPDO->run('ALTER TABLE fruits ADD COLUMN qty INT(11)');
 
 This method returns an array of rows. To select a single value use selectCell().
 
-```
+```php
 public function select($sql, $bindings = array(), $fetch_style = '', $fetch_argument = '') {}
 
 // normal
@@ -107,7 +107,7 @@ $rows = $MyPDO->select('SELECT name, qty FROM fruits', NULL, PDO::FETCH_COLUMN, 
 
 Sometimes you want to retrieve a single value without it being buried in an array. This method returns a scalar value representing the intersection of one row and one column. 
 
-```
+```php
 public function selectCell($sql, $bindings = array()) {}
 
 // normal
@@ -119,7 +119,7 @@ $qty = $MyPDO->selectCell('SELECT qty FROM fruits WHERE fruit = ?', array('apple
 
 ### update
 
-```
+```php
 public function update($table, $values, $where, $bindings = array()) {}
 
 // normal
